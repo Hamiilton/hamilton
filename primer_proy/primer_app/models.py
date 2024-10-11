@@ -105,3 +105,121 @@ class Persona(models.Model):
                                 help_text='Igrese si es persona natural y juridica',
                                 choices=TIPO_PERSONA,
                                 default='Natural')
+    
+class Cliente(models.Model):
+    nombre=models.CharField(verbose_name='Nombre del cliente',
+                            max_length=100,
+                            null=False)
+    email=models.EmailField(verbose_name='Correo del cliente')
+    def __str__(self) -> str:
+        return self.nombre
+    
+class pedido_cliente(models.Model):
+    fecha_pedido=models.DateField()
+    valor_pedido=models.IntegerField()
+    cliente=models.ForeignKey(Cliente,on_delete=models.CASCADE,related_name='Pedidos')
+    def __str__(self) -> str:
+        return self.fecha_pedido
+    
+## UNO A MUCHOS
+class Continente(models.Model):
+    codigo=models.CharField(verbose_name='Codigo del coontinente',
+                            max_length=45,
+                            null=False)
+    nombre=models.CharField(verbose_name='Nombre del continente',
+                            max_length=45,
+                            null=False)
+    def __str__(self):
+        return self.nombre
+
+class Pais(models.Model):
+    codigo=models.CharField(verbose_name='Codigo del pais',
+                            max_length=45,
+                            null=False)
+    nombre=models.CharField(verbose_name='Nombre del pais',
+                            max_length=45,
+                            null=False)
+    continente_id=models.ForeignKey(Continente,
+                                    on_delete=models.CASCADE,
+                                    related_name='Codigo_continente')
+    def __str__(self):
+        return self.nombre
+class Provincia(models.Model):
+    codigo=models.CharField(verbose_name='Codigo de la provincia',
+                            max_length=45,
+                            null=False)
+    nombre=models.CharField(verbose_name='Nombre de la provincia',
+                            max_length=45,
+                            null=False)
+    pais_id=models.ForeignKey(Pais,
+                                on_delete=models.CASCADE,
+                                related_name='Codigo_provincia')
+    def __str__(self):
+        return self.nombre
+class Municipio(models.Model):
+    codigo=models.CharField(verbose_name='Codigo del municipio',
+                            max_length=45,
+                            null=False)
+    nombre=models.CharField(verbose_name='Nombre del municipio',
+                            max_length=45,
+                            null=False)
+    municipio_id=models.ForeignKey(Provincia,
+                                    on_delete=models.CASCADE,
+                                    related_name='Codigo_provincia')
+    def __str__(self):
+        return self.nombre
+##UNO A UNO
+class Usuario(models.Model):
+    nombre=models.CharField(max_length=100,
+                            verbose_name='Nombre del usuario',
+                            help_text='Ingrese su nombre',
+                            null=False)
+    email=models.EmailField(max_length=100,
+                            verbose_name='Correo de el usuario',
+                            help_text='Ingrese su correo',
+                            null=False,
+                            db_index=True)
+    def __str__(self):
+        return self.nombre
+
+class Perfil(models.Model):
+    usuario=models.OneToOneField(Usuario,on_delete=models.CASCADE)
+    fecha_nacimiento_usuario=models.DateField(verbose_name='Fecha de nacimineto',
+                                            null=False,
+                                            help_text='Ingrese su fecha de  nacimineto en formato aaaa/mm/dd',
+                                            )
+    direccion=models.CharField(max_length=100,
+                            verbose_name='Direccion del usuario',
+                            null=False,
+                            help_text='Ingrese su direccion de residencia actual')
+    def __str__(self):
+        return f'Perfil de {self.usuario.nombre}'
+    
+##MUCHOS A MUCHOS
+
+class Instructor(models.Model):
+    nombre=models.CharField(max_length=100,
+                            verbose_name='Nombre del instructor',
+                            null=False)
+    profesion=models.CharField(max_length=100,
+                            verbose_name='Profesion del instructor',
+                            null=False)
+    especialidad=models.CharField(max_length=100,
+                                verbose_name='Especialida  del instructor',
+                                null=False)
+    fecha_contratacion=models.DateField(verbose_name='Fceha de contratacion del instructor',
+                                        null=False)
+    def __str__(self):
+        return self.nombre,self.profesion
+    
+class Aprendiz(models.Model):
+    nombre=models.CharField(verbose_name='Nombre del aprendiz',
+                            max_length=100,
+                            null=False)
+    apellido=models.CharField(verbose_name='Apellido del aprendiz',
+                        max_length=100,
+                        null=False)
+    instructores=models.ManyToManyField(Instructor,related_name='aprendices')
+
+    def __str__(self):
+        return self.nombre,self.apellido
