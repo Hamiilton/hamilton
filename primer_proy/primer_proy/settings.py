@@ -55,7 +55,9 @@ ROOT_URLCONF = 'primer_proy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'primer_proy/Templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
