@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap');
+
+body{
+    font-family: Arima;
+    margin: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    height:50px ;
+    width: 100%;
+    background-color: rgb(46, 204, 113);
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+}
+
+.encabezado{
+    display: flex;
+    align-items: center;
+}
+
+.encabezado__img{
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 30px;
+}
+.encabezado__img--lineas{
+    position: absolute;
+    right: 30px;    
+}
+
+.contenido{
+    background-color: rgb(46, 204, 113);
+    text-align: center;
+    position: relative;
+    margin: 150px;
+    border-radius: 30px;
+
+}
+
+.contenido__titulo{
+    text-align: center;
+    background-color: white;
+
+}
+.contenido__parrafo{
+    color: rgb(255, 255, 255);
+    margin: 10px;
+}
+.contenido__parrafoNiños--aling{
+    text-align: justify;
+}
+.video{
+    width:500px ;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px black;
+}
+.pie_pagina{
+    background-color: rgb(46, 204, 113);
+    position: fixed;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+}
