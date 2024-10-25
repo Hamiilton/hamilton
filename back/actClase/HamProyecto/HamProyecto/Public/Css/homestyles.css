@@ -1,0 +1,28 @@
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+    margin: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+    background-color: beige;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+}
+.seccion{
+    margin: 150px;
+    height: 700px;
+    width: 900px;
+    background-color: beige;
+}
+
+.titulo{
+    text-align: left;
+}

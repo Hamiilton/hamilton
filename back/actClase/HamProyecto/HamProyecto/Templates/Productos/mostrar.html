@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Inicio
+{% endblock %}
+
+{% block content %}
+    <h1 class="titulo">Tabla mostrar</h1>
+    <table class="tabla">
+        <thead class="tabla__header">
+            <tr class="tabla_row">
+                <th class="tabla__cell tabla__cell--header">Codigo</th>
+                <th class="tabla__cell tabla__cell--header">Descripcion</th>
+                <th class="tabla__cell tabla__cell--header">Presentacion</th>
+                <th class="tabla__cell tabla__cell--header">Valor Unitario</th>
+                <th class="tabla__cell tabla__cell--header">Cantidad</th>
+                <th class="tabla__cell tabla__cell--header">Activo</th>
+            </tr>
+        </thead>
+        <tbody class="tabla_body">
+            {% for producto in listado_producto %}
+            <tr class="tabla_row">
+                <td class="tabla__cell">{{producto.1}}</td>
+                <td class="tabla__cell">{{producto.2}}</td>
+                <td class="tabla__cell">{{producto.3}}</td>
+                <td class="tabla__cell">{{producto.4}}</td>
+                <td class="tabla__cell">{{producto.5}}</td>
+                <td class="tabla__cell">{{producto.6}}</td>
+                <td>
+                    <a class="opcion" href="#">Actializar Dato</a>
+                    <a class="opcion" href="#">Elimina Dato</a>
+                </td>
+            </tr>
+            {% endfor %}
+{% endblock %}
