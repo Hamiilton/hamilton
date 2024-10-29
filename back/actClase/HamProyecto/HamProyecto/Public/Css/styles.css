@@ -1,0 +1,25 @@
+.contenedor{
+    height: 500px;
+    width: 500px;
+    margin: 150px;
+    position: relative;
+    background-color: antiquewhite;
+
+}
+
+.titulo{
+    background-color:antiquewhite;
+    text-align: center;
+}
+
+.labels{
+    margin: 5px;
+}
+.inputs{
+    border-radius: 3px;
+    width: 100px;
+    margin: 5px;
+}
+.boton{
+    background-color: white;
+}

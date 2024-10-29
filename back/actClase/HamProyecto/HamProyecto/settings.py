@@ -56,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'HamProyecto/Templates'
+            'HamProyecto/Templates/Productos'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'HamProyecto.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'adso_db',
         'HOST': 'localhost',
         'USER': 'root',
@@ -127,7 +127,7 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-STATICFIELDS_DIRS=[
+STATICFILES_DIRS=[
     'HamProyecto/Public'
 ]
 
