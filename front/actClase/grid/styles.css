@@ -1,0 +1,28 @@
+.contenedor{
+    display: grid;
+    height: 300px;
+    width: 200px;
+    /* grid-template-columns: 50px 50px;
+    grid-template-rows: 50px 50px; */
+    /* grid-template-columns: 2fr 1fr 3fr;
+    grid-template-rows: 1fr 2fr 3fr; */
+    grid-template-columns: repeat(4, 25
+    %);
+    grid-template-rows: repeat(2,50%);
+    background-color: aquamarine;
+}
+.item1{
+    background-color: blue;
+}
+
+.item2{
+    background-color: blueviolet;
+}
+
+.item3{
+    background-color: yellowgreen;
+}
+
+.item4{
+    background-color: chocolate;
+}
