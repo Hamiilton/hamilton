@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+body{
+    margin: 0;
+    background-image: url(img/fondoo.jpg);
+    font-family:Poiret One;
+    color: white;
+}
+
+header{
+    display: grid;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    margin: 30px 50px 10px 100px;
+}
+
+.titulo{
+    font-size: xx-large;
+}
+
+.seccion{
+    display: grid;
+    grid-template-columns:repeat(2,50%);
+    background-color: #000000;
+    margin: 100px 150px 50px 150px;
+    border: 2px solid #5ccb5f;
+    border-radius: 5px;
+    box-shadow: 2px 1px 10px 2px #5ccb5f;
+}
+
+.contenedor{
+    display: grid;
+    grid-template-rows: repeat(2,50%);
+    font-size: xx-large;
+    margin: 100px;
+}
+
+.contenedor_derecho{
+    display: grid;
+    margin: 100px;
+}
+
+.contenedores_derechos{
+    position: relative;
+    margin: 0 0 0 0;
+    width: 100%;
+    box-shadow: 2px 1px 10px 2px #5ccb5f;
+    border: 2px solid #5ccb5f;
+    margin: 20px;
+    padding: 10px;
+}
+
+.iconos{
+    height: 40px;
+    transition: transform 0.5;
+}
+.iconos:hover{
+    transform: scale(1.1);
+}
